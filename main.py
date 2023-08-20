@@ -1,7 +1,7 @@
 import random
 import string
 from person import Person
-from sorting import bubble_sort
+from sorting import bubble_sort, selection_sort
 
 
 def random_name(length: int = 8) -> str:
@@ -12,10 +12,10 @@ def random_phone():
     return random.randint(1000000000, 9999999999)
 
 phone_book = [None] * 50
-
+ 
 for i in range(50):
     phone_book[i] = Person(random_name(), random_phone())
 
-bubble_sort(phone_book, 'phone')
+selection_sort(phone_book, 'name')
 for contact in phone_book:
     print(contact)

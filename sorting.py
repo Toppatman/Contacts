@@ -7,8 +7,6 @@ def bubble_sort(people: List[Person], field: Literal['name', 'phone']):
     Args:
         people: A list of objects that we want to sort.
         field: The field that will be used for sorting.
-    Returns:
-        The sorted list.
     """
     while True:
         did_swap = False
@@ -23,13 +21,30 @@ def bubble_sort(people: List[Person], field: Literal['name', 'phone']):
         did_swap = False
 
 
-def insertion_sort(people: List[Person], field: str) -> List[Person]:
+def insertion_sort(people: List[Person], field: Literal['name', 'phone']) -> List[Person]:
+    """
+    This function implements insertion sort.
+    Args:
+        people: A list of objects that we want to sort.
+        field: The field that will be used for sorting.
+    """
+
     
     pass
 
-def selection_sort(people: List[Person], field: str) -> List[Person]:
+def selection_sort(people: List[Person], field: Literal['name', 'phone']) -> List[Person]:
+    """
+    This function implements selection sort.
+    Args:
+        people: A list of objects that we want to sort.
+        field: The field that will be used for sorting.
+    """
+    for i in range(len(people)):
+        smallest = i
+        for j in range(i + 1, len(people)):
+            if getattr(people[j], field) < getattr(people[smallest], field):
+                smallest = j
+        people[i], people[smallest] = people[smallest], people[i]
 
-    pass
-
-def binary_search(people: List[Person], field: str, target) -> int:
+def binary_search(people: List[Person], field: Literal['name', 'phone'], target) -> int:
     pass
