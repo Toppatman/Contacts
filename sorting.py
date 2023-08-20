@@ -1,35 +1,35 @@
-from typing import List, TypeVar
+from typing import List, Literal
+from person import Person
 
-T = TypeVar('T')
-
-def bubble_sort(container: List[T], field: str) -> List[T]:
+def bubble_sort(people: List[Person], field: Literal['name', 'phone']):
     """
     This function implements bubble sort.
     Args:
-        container: A list of objects that we want to sort.
+        people: A list of objects that we want to sort.
         field: The field that will be used for sorting.
     Returns:
         The sorted list.
     """
-    did_swap = False
     while True:
-        for i in range(1, len(List)):
-            if container[i-1] > container[i]:
-                x = container[i-1]
-                container[i-1] = container[i]
-                container[i] = x
+        did_swap = False
+        for i in range(1, len(people)):
+            if getattr(people[i - 1], field) > getattr(people[i], field):
+                temp = people[i - 1]
+                people[i - 1] = people[i]
+                people[i] = temp
                 did_swap = True
-            if not did_swap:
-                break
-            did_swap = False
+        if not did_swap:
+            break
+        did_swap = False
 
 
-
-def insertion_sort(container: List[T], field: str) -> List[T]:
+def insertion_sort(people: List[Person], field: str) -> List[Person]:
+    
     pass
 
-def selection_sort(container: List[T], field: str) -> List[T]:
+def selection_sort(people: List[Person], field: str) -> List[Person]:
+
     pass
 
-def binary_search(container: List[T], field: str, target):
+def binary_search(people: List[Person], field: str, target) -> int:
     pass

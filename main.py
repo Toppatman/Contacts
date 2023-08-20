@@ -1,23 +1,21 @@
 import random
 import string
+from person import Person
+from sorting import bubble_sort
+
 
 def random_name(length: int = 8) -> str:
     letters = string.ascii_lowercase
-    return ''.join(random.choice(letters) for i in range(length))
+    return ''.join(random.choice(letters) for _ in range(length))
 
 def random_phone():
     return random.randint(1000000000, 9999999999)
 
-class Person():
-    name: str
-    phone: int
-    def __init__(self, name, phone):
-        self.name = name
-        self.phone = phone
-    
-    def __str__(self):
-        return f"Name: {self.name}, Phone: {self.phone}"
-   
+phone_book = [None] * 50
 
-person = Person('bob', 128467122)
-print(person)
+for i in range(50):
+    phone_book[i] = Person(random_name(), random_phone())
+
+bubble_sort(phone_book, 'phone')
+for contact in phone_book:
+    print(contact)
